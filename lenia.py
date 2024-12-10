@@ -33,12 +33,12 @@ class Lenia:
 
         self.device = device
         self.pattern = self.patterns[pattern]  # What pattern it will use for generating
-        self.size = size  # Size of field
+        self.size = size                       # Size of field
         self.scale = scale
-        self.start_pos = (start_x, start_y)  # Where it starts
+        self.start_pos = (start_x, start_y)    # Where it starts
         self.world = [
             torch.zeros((size, size), device=self.device) for _ in range(3)
-        ]  # Full black world
+        ]                                      # Full black world
 
         self.__init_pattern()
         self.period = self.pattern["T"]

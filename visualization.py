@@ -44,9 +44,9 @@ class LeniaVisualizer:
         # Convert torch tensors to numpy
         world = [
             c.cpu().numpy() for c in self.lenia.world
-        ]  # Makes '3D-array for RGB visualization'
+        ]                         # Makes '3D-array for RGB visualization'
         world = np.dstack(world)  # Makes '3D-array for RGB visualization'
-        world *= 255  # Scalar multiplying
+        world *= 255              # Scalar multiplying
         world = self.to_screen_size(world, self.screen_width, self.screen_height)
 
         surf = pygame.surfarray.make_surface(world)
@@ -74,8 +74,8 @@ if __name__ == "__main__":
 
     PATTERN = sys.argv[1] if len(sys.argv) > 1 else "aquarium"
 
-    _lenia = Lenia(
+    lenia = Lenia(
         pattern=PATTERN, size=512, scale=4, start_x=150, start_y=100, cells_amount=4
     )
-    visualizer = LeniaVisualizer(_lenia, screen_height=512, screen_width=512)
+    visualizer = LeniaVisualizer(lenia, screen_height=512, screen_width=512)
     visualizer.run()
